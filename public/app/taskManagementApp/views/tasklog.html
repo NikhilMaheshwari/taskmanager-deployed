@@ -1,0 +1,65 @@
+<div class="container" id="taskLogCreate" style="margin-top:5%">
+    <ol class="breadcrumb">
+        <li><a href="#/tasks">Task</a></li>
+        <li class="active">TaskLog</li>
+    </ol>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="row">
+                <span class="col-md-8 pull-left"><h4><strong>{{taskInfo.task_name}} </strong><span class="badge">{{taskInfo.total_hours_spend}} hours</span></h4>
+                </span>
+                <span class="col-md-2 pull-right"><h4><strong>{{taskInfo.status}}</strong></h4></span>
+                <span class="col-md-2 pull-right"><h4><strong>{{taskInfo.due_date}}</strong></h4></span>
+            </div>
+
+        </div>
+        <div class="panel-body">
+            <p>{{taskInfo.description}}</p>
+            <div class="alert alert-info" ng-show="taskLogList.length == 0" role="alert">No hour log data for this task</div>
+        </div>
+        <div class="panel-body" ng-show="taskInfo.status=='Running'">
+            <form id="taskCreateDiv" class="form-inline row" ng-submit="createNewTaskLog()">
+                <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="taskName" required ng-model="taskLog.hours_log" placeholder="Total hours worked">
+                </div>
+                <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-default">Create Task Log</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="panel-body" ng-show="taskLogList.length != 0">
+            <table class="table table-bordered" si-table>
+                <thead>
+                    <tr>
+                        <th sort-by="date">Date (yyyy-mm-dd)</th>
+                        <th sort-by="hours_spend">Hours Logged</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="task in taskLogList | filter:filter">
+                        <td><strong>{{ task.log_date }}</strong></td>
+                        <td>
+                            <div ng-show="task.canEdit" click-to-edit="task.hours_spend"></div>
+                            <div ng-show="!task.canEdit">{{task.hours_spend}}</div>
+                        </td>
+                        <td>
+                            <button type="button" ng-show="task.canEdit" ng-click="updateTaskHours(task)" class="btn btn-primary">Update</button>
+                            <p ng-show="!task.canEdit">No Action Allowed</p>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <si-table-pagination limit="10" />
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

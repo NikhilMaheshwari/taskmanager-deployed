@@ -1,0 +1,29 @@
+<div class="container row">
+
+    <div class="col-sm-6 col-sm-offset-6">
+        <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+        <form class="form-horizontal" method="post" action="/api/admin/login">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" ng-model="signupData.username" name="email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" ng-model="signupData.password" name="password">
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+            </div>
+        </form>
+
+        <hr>
+
+        <p>Or go <a href="/">home</a>.</p>
+
+    </div>
+
+</div>

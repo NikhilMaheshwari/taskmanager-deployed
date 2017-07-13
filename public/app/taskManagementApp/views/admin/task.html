@@ -1,0 +1,39 @@
+<div class="container" id="taskPage" style="margin-top:5%">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="row">
+                <span class="col-md-8 pull-left"><h4><strong>Task List</strong></h4></span>
+                <div class="col-md-4"><input type="text" class="form-control pull right" ng-model="filter.$" placeholder="filter" /></div>
+            </div>
+
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered" si-table>
+                <thead>
+                    <tr>
+                        <th sort-by="task_name">Name</th>
+                        <th sort-by="description">Description</th>
+                        <th sort-by="due_date" sort-init="desc">Due Date</th>
+                        <th sort-by="status">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="task in taskList | filter:filter">
+                        <td class="text-muted">{{ task.task_name }}</td>
+                        <td><strong>{{ task.description }}</strong></td>
+                        <td>{{ task.due_date | date }}</td>
+                        <td>{{ task.status }}</td>
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <si-table-pagination limit="10" />
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

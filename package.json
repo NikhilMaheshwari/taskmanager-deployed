@@ -1,0 +1,38 @@
+{
+    "name": "taskmanager",
+    "version": "1.0.0",
+    "description": "A task manager for loggin of hours worked",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NikhilMaheshwari/peoplegrove-taskmanager.git"
+    },
+    "author": "Nikhil Maheshwari",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NikhilMaheshwari/peoplegrove-taskmanager/issues"
+    },
+    "homepage": "https://github.com/NikhilMaheshwari/peoplegrove-taskmanager#readme",
+    "dependencies": {
+        "bcrypt-nodejs": "0.0.3",
+        "body-parser": "^1.17.2",
+        "connect-ensure-login": "^0.1.1",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.15.3",
+        "express-generator": "^4.15.0",
+        "express-jsonschema": "^1.1.6",
+        "express-session": "^1.15.3",
+        "mongoose": "^4.11.1",
+        "morgan": "^1.8.2",
+        "node-schema-object": "^3.3.4",
+        "passport": "^0.3.2",
+        "passport-facebook": "^2.1.1",
+        "passport-local": "^1.0.0",
+        "uuid": "^3.1.0"
+    }
+}

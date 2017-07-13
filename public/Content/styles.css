@@ -1,0 +1,434 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Roboto Light'), local('Roboto-Light'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/Pru33qjShpZSmG3z6VYwnT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/Xyjz-jNkfiYuJf8UC3Lizw.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/oOeFwZNlrTefzLYmlVV1UD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/97uahxiqZRoncBaCEI3aWz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/7m8l7TlFO-S3VkhHuR0at9Ih4imgI8P11RFo6YPCPC0.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Roboto Italic'), local('Roboto-Italic'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/dFWsweFqlD8ExfyN7Gh_GPesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/OLffGBTaF0XFOW1gnuHF0dIh4imgI8P11RFo6YPCPC0.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/t6Nd4cfPRhZP44Q5QAjcC9Ih4imgI8P11RFo6YPCPC0.woff) format('woff');
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto'
+}
+
+#ng-view {
+    position: relative;
+    padding-top: 50px;
+}
+
+#nav-login {
+    margin-left: 30px;
+}
+
+.appTitle {
+    line-height: 50px;
+}
+
+.view {}
+
+.white {
+    color: white;
+}
+
+.white:hover {
+    color: white;
+}
+
+#card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    height: 100px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cardHeader {
+    background-color: #027FF4;
+    font-size: 14pt;
+    color: white;
+    padding: 5px;
+    width: 100%;
+}
+
+.cardClose {
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.cardContainer {
+    width: 85%;
+}
+
+.cardBody {
+    padding-left: 5px;
+}
+
+.cardBodyLeft {
+    margin-top: -5px;
+}
+
+.cardBodyRight {
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+.cardBodyContent {
+    width: 100px;
+}
+
+.cardImage {
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+}
+
+.lastRow {
+    background-color: #ccc;
+}
+
+.indent {
+    margin-left: 5px;
+}
+
+.ordersTable {
+    width: 85%;
+}
+
+.orders th,
+.customers th {
+    width: 20%;
+    cursor: pointer;
+}
+
+.ordersTable tr:first-child th,
+.customersTable tr:first-child th {
+    background-color: #027FF4;
+    color: #fff;
+    font-weight: bold;
+}
+
+.gridContainer td {
+    vertical-align: middle;
+}
+
+#submitCustomer {
+    margin-left: 50px;
+    margin-top: -8px;
+}
+
+footer {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.customerEdit input[type='text'],
+.customerEdit input[type='number'],
+.customerEdit input[type='email'],
+.customerEdit select,
+.login input[type='text'],
+.login input[type='email'],
+.login input[type='password'] {
+    width: 250px;
+}
+
+.statusRow {
+    height: 50px;
+}
+
+
+/* Bootstrap overrides */
+
+
+/* Added to fix Bootstrap 3 issue with Angular UI Bootstrap modal dialog*/
+
+.modal {
+    display: block;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: #027FF4;
+    border-color: #027FF4;
+}
+
+.cardContainer .col-md-3 {
+    padding-left: 0px;
+}
+
+.gridContainer div {
+    padding-left: 0px;
+}
+
+.close {
+    font-size: 15pt;
+    opacity: 1.0;
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.btn.active {
+    background-color: #f7f7f7;
+}
+
+.field {
+    margin-bottom: 1em;
+}
+
+.click-to-edit {
+    display: inline-block;
+}
+
+input {
+    display: initial !important;
+    width: auto !important;
+    margin: 0 5px 0 0 !important;
+}
+
+
+/* ng-cloak */
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng.ng-cloak {
+    display: none;
+}
+
+.novalidate {
+    border-left: none !important;
+}
+
+input.ng-invalid,
+select.ng-invalid,
+input.ng-invalid-required,
+select.ng-invalid-required {
+    border-left: 5px solid #E03930;
+}
+
+input.ng-valid,
+select.ng-valid,
+input.ng-valid-required,
+select.ng-valid-required {
+    border-left: 5px solid #57A83F;
+}
+
+.errorMessage {
+    position: absolute;
+    padding: 5px;
+    background-color: #E03930;
+    color: white;
+    top: 0px;
+    left: 270px;
+}
+
+.editIcon {
+    margin-top: 2px;
+}
+
+.pagination li {
+    cursor: pointer;
+}
+
+
+/*
+    Note: It is best to use a less version of this file ( see http://css2less.cc
+    For the media queries use @screen-sm-min instead of 768px.
+    For .omb_spanOr use @body-bg instead of white.
+*/
+
+@media (min-width: 768px) {
+    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+        margin-left: 25%;
+    }
+}
+
+.omb_login .omb_authTitle {
+    text-align: center;
+    line-height: 300%;
+}
+
+.omb_login .omb_socialButtons a {
+    color: white; // In yourUse @body-bg 
+    opacity: 0.9;
+}
+
+.omb_login .omb_socialButtons a:hover {
+    color: white;
+    opacity: 1;
+}
+
+.omb_login .omb_socialButtons .omb_btn-facebook {
+    background: #3b5998;
+}
+
+.omb_login .omb_socialButtons .omb_btn-twitter {
+    background: #00aced;
+}
+
+.omb_login .omb_socialButtons .omb_btn-google {
+    background: #c32f10;
+}
+
+.omb_login .omb_loginOr {
+    position: relative;
+    font-size: 1.5em;
+    color: #aaa;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.omb_login .omb_loginOr .omb_hrOr {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.omb_login .omb_loginOr .omb_spanOr {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -0.6em;
+    margin-left: -1.5em;
+    background-color: white;
+    width: 3em;
+    text-align: center;
+}
+
+.omb_login .omb_loginForm .input-group.i {
+    width: 2em;
+}
+
+.omb_login .omb_loginForm .help-block {
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .omb_login .omb_forgotPwd {
+        text-align: right;
+        margin-top: 10px;
+    }
+}
+
+
+/* wcOverlay directive CSS styles */
+
+.overlayContainer {
+    display: none;
+}
+
+.overlayBackground {
+    top: 0px;
+    left: 0px;
+    padding-left: 100px;
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-color: #808080;
+    opacity: 0.3;
+}
+
+.overlayContent {
+    position: absolute;
+    border: 1px solid #000;
+    background-color: #fff;
+    font-weight: bold;
+    height: 100px;
+    width: 300px;
+    z-index: 1000;
+    text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+    navbar-toggle {
+        display: none;
+    }
+    #ng-view {
+        padding-top: 90px;
+    }
+    .navbar-brand {
+        font-size: 12pt;
+    }
+    .nav.navBarPadding {
+        margin-left: -10px;
+    }
+    .nav>li>a {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="taskManagementApp">
+
+<head>
+    <title>Task Manager</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/animations.css" rel="stylesheet" />
+    <link href="Content/styles.css" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+</head>
+
+<body ng-cloak>
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavbarController">
+        <div class="container-fluid">
+            <div class="navbar-header" style="height:60px !important;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/" style="height: 60px;
+    line-height: 30px;
+    font-size: 25px;">
+                   Task Manager
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="height:60px;">
+                <p class="navbar-text navbar-right" style="margin-top:5px; margin-bottom:0px; padding-right: 10px;" ng-show="isLoggedIn">
+                    <img ng-src="{{profileInfo.photos}}" height="24" width="24"> Signed in as {{profileInfo.name}}
+                    <button type="button" class="btn btn-default navbar-btn" ng-click="loginOrOut()">Logout</button>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="slide-animation-container">
+        <div ng-view id="ng-view" class="slide-animation"></div>
+    </div>
+
+    <div id="footer">
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner footer">
+                <div class="container">
+                    <footer>
+                        <div class="row">
+                            <div class="col-md-12">
+                                Created by Nikhil Maheshwari
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3rd party libraries -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.0.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="http://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="Scripts/tweenMax.min.js"></script>
+    <script src="Scripts/si-table.js"></script>
+    <!-- Custom scripts -->
+    <script src="app/taskManagementApp/app.js"></script>
+    <script src="app/taskManagementApp/directive/clickToEdit.js"></script>
+    <script src="app/taskManagementApp/services/filterService.js"></script>
+    <script src="app/taskManagementApp/services/authService.js"></script>
+    <script src="app/taskManagementApp/services/taskService.js"></script>
+    <script src="app/taskManagementApp/services/userService.js"></script>
+    <script src="app/taskManagementApp/services/adminAuthService.js"></script>
+    <script src="app/taskManagementApp/services/profileService.js"></script>
+    <script src="app/taskManagementApp/services/taskLogService.js"></script>
+    <script src="app/taskManagementApp/services/adminTaskService.js"></script>
+    <script src="app/taskManagementApp/services/httpInterceptors.js"></script>
+    <script src="app/taskManagementApp/controllers/navbarController.js"></script>
+    <script src="app/taskManagementApp/controllers/loginController.js"></script>
+    <script src="app/taskManagementApp/controllers/homeController.js"></script>
+    <script src="app/taskManagementApp/controllers/profileController.js"></script>
+    <script src="app/taskManagementApp/controllers/taskController.js"></script>
+    <script src="app/taskManagementApp/controllers/taskLogController.js"></script>
+    <script src="app/taskManagementApp/controllers/admin/adminLoginController.js"></script>
+    <script src="app/taskManagementApp/controllers/admin/adminSignupController.js"></script>
+    <script src="app/taskManagementApp/controllers/admin/adminTasksController.js"></script>
+</body>
+
+</html>
