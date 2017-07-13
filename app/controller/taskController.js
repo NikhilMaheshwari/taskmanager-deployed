@@ -5,15 +5,15 @@ var uuid = require('uuid');
 module.exports.save = function (user, task, callback) {
     newTask = new Task();
     newTask.task_id = uuid.v1();
-    newTask.user_id = user.user_id;
+    newTask.user_id = user.facebook.user_id;
     newTask.task_name = task.task_name;
     newTask.description = task.description;
     newTask.due_date = task.due_date;
     newTask.status = 'NotStarted';
     newTask.created_on = new Date();
-    newTask.created_by = user.user_id;
+    newTask.created_by = user.facebook.user_id;
     newTask.modified_on = new Date();
-    newTask.modified_by = user.user_id;
+    newTask.modified_by = user.facebook.user_id;
     newTask.total_hours_spend = 0;
     newTask.save(function (err) {
         if (err) {

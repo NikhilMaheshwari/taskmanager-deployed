@@ -7,8 +7,8 @@ const options = {
     useMongoClient: true
 };
 
-const URI = 'mongodb://nikhil:qwertyuiop@ds151202.mlab.com:51202/taskmanager';
-//const URI = 'mongodb://127.0.0.1:27017/taskmanager';
+//const URI = 'mongodb://nikhil:qwertyuiop@ds151202.mlab.com:51202/taskmanager';
+const URI = 'mongodb://127.0.0.1:27017/taskmanager';
 
 function connect() {
     mongoose.connect(URI, options)

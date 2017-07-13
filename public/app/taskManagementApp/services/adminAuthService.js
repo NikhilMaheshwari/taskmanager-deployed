@@ -14,7 +14,9 @@
         factory.loginCheck = function () {
 
             var deferred = $q.defer();
-            $http.post(serviceBase + 'loginCheck').
+            $http.get(serviceBase + 'loginCheck', {
+                withCredentials: true
+            }).
             success(function (data, status, headers, config) {
                 deferred.resolve(data);
             }).

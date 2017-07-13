@@ -5,14 +5,14 @@ const taskRequestValidator = require('./core/tasksRequest');
 const taskLogRequestValidator = require('./core/taskLogRequest');
 const taskLogUpdateRequestValidator = require('./core/taskLogUpdateRequest');
 
-const loginController = require('./controller/loginController')(passport);
-const adminLoginController = require('./controller/admin/loginController');
 const userController = require('./controller/userController');
 const taskController = require('./controller/taskController');
 const taskLogController = require('./controller/taskLogController');
 
 routes.post('/admin/signup', function (req, res, next) {
-    passport.authenticate('local-signup', function (err, user, info) {
+    passport.authenticate('local-signup', {
+        session: true
+    }, function (err, user, info) {
         if (err) {
             return next(err); // will generate a 500 error
         }
@@ -32,7 +32,9 @@ routes.post('/admin/signup', function (req, res, next) {
 });
 
 routes.post('/admin/login', function (req, res, next) {
-    passport.authenticate('local-login', function (err, user, info) {
+    passport.authenticate('local-login', {
+        session: true
+    }, function (err, user, info) {
         if (err) {
             return next(err); // will generate a 500 error
         }
@@ -51,7 +53,7 @@ routes.post('/admin/login', function (req, res, next) {
     })(req, res, next);
 });
 
-routes.post('/admin/task', function (req, res, next) {
+routes.post('/admin/task', isLoggedIn, function (req, res, next) {
     taskController.getAllTasks(function (err, tasks) {
         if (err) {
             return res.status(200).json({
@@ -67,7 +69,7 @@ routes.post('/admin/task', function (req, res, next) {
     });
 });
 
-routes.post('/admin/loginCheck', (req, res) => {
+routes.get('/admin/loginCheck', (req, res) => {
     console.log(req.body);
     var isLoggedIn = req.isAuthenticated();
     res.status(200).json({
@@ -107,7 +109,7 @@ routes.post('/task/create', isLoggedIn, validate({
 routes.post('/task', isLoggedIn, (req, res) => {
     console.log(req.user);
 
-    taskController.getByUserId(req.user.user_id, function (err, tasks) {
+    taskController.getByUserId(req.user.facebook.user_id, function (err, tasks) {
         if (err) {
             return res.status(200).json({
                 message: err,
@@ -125,7 +127,7 @@ routes.post('/task', isLoggedIn, (req, res) => {
 routes.post('/task/:taskId/start', isLoggedIn, (req, res) => {
     console.log(req.user);
 
-    taskController.startTask(req.params.taskId, req.user.user_id, function (err, donee) {
+    taskController.startTask(req.params.taskId, req.user.facebook.user_id, function (err, donee) {
         if (err) {
             return res.status(200).json({
                 message: err,
@@ -142,7 +144,7 @@ routes.post('/task/:taskId/start', isLoggedIn, (req, res) => {
 routes.post('/task/:taskId/stop', isLoggedIn, (req, res) => {
     console.log(req.user);
 
-    taskController.endTask(req.params.taskId, req.user.user_id, function (err, donee) {
+    taskController.endTask(req.params.taskId, req.user.facebook.user_id, function (err, donee) {
         if (err) {
             return res.status(200).json({
                 message: err,
@@ -203,7 +205,7 @@ routes.post('/task/:taskId/log', isLoggedIn, (req, res) => {
                 isSuccess: false
             });
         }
-        taskController.getByTaskId(req.user.user_id, req.params.taskId, function (err, tasks) {
+        taskController.getByTaskId(req.user.facebook.user_id, req.params.taskId, function (err, tasks) {
             if (err) {
                 return res.status(200).json({
                     message: err,
@@ -394,7 +396,8 @@ module.exports = routes;
 
 // route middleware to make sure
 function isLoggedIn(req, res, next) {
-
+    console.log("Is Logged In");
+    console.log(req.session);
     // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
         return next();

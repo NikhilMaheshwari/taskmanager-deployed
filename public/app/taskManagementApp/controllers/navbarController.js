@@ -1,8 +1,8 @@
 (function () {
 
-    var injectParams = ['$scope', '$location', 'authService', 'profileService', 'adminAuthService'];
+    var injectParams = ['$scope', '$window', '$location', 'authService', 'profileService', 'adminAuthService'];
 
-    var NavbarController = function ($scope, $location, authService, profileService, adminAuthService) {
+    var NavbarController = function ($scope, $window, $location, authService, profileService, adminAuthService) {
         var vm = this,
             appTitle = 'Task Management';
 
@@ -17,7 +17,7 @@
                 console.log($scope.isLoggedIn)
                 //$scope.isLoggedIn = results.data.data.status;
                 $scope.profileInfo = {
-                    'photos': '',
+                    'photos': 'http://www.tuktukdesign.com/wp-content/uploads/2014/08/free-user-icon-download.jpg',
                     'name': 'Admin'
                 }
 
@@ -30,7 +30,7 @@
                     console.log($scope.isLoggedIn);
                     if ($scope.isLoggedIn) {
                         profileService.getUserProfile().then(function (successResponse) {
-                            $scope.profileInfo = successResponse;
+                            $scope.profileInfo = successResponse.facebook;
                             console.log($scope.profileInfo);
 
                         });
@@ -49,6 +49,7 @@
                     if ($scope.isLoggedIn) { //logout 
                         authService.logout().then(function () {
                             $location.path('/');
+                            $window.location.reload();
                             return;
                         });
                     } else {
@@ -60,9 +61,11 @@
                 if ($scope.isLoggedIn) {
                     adminAuthService.logout().then(function () {
                         $location.path('/#/admin/login');
+                        $window.location.reload();
                         return;
                     });
                 } else {
+                    $window.location.reload();
                     $location.path('/#/admin/login');
                 }
             }

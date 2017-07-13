@@ -11,13 +11,14 @@
         vm.errorMessage = null;
 
         vm.login = function () {
-            authService.login(vm.email, vm.password).then(function (status) {
+            adminAuthService.login(vm.email, vm.password).then(function (status) {
                 //$routeParams.redirect will have the route
                 //they were trying to go to initially
                 if (!status) {
                     vm.errorMessage = 'Unable to login';
                     return;
                 }
+                console.log(status);
 
                 if (status && $routeParams && $routeParams.redirect) {
                     path = path + $routeParams.redirect;

@@ -9,9 +9,9 @@ module.exports.save = function (user, taskLog, callback) {
     newTask.task_id = taskLog.task_id;
     newTask.date = new Date();
     newTask.created_on = new Date();
-    newTask.created_by = user.user_id;
+    newTask.created_by = user.facebook.user_id;
     newTask.modified_on = new Date();
-    newTask.modified_by = user.user_id;
+    newTask.modified_by = user.facebook.user_id;
     newTask.hours_spend = taskLog.hours_spend;
     newTask.save(function (err) {
         if (err) {
@@ -30,7 +30,7 @@ module.exports.update = function (user, taskLog, callback) {
     }, {
         'hours_spend': taskLog.hours_spend,
         'modified_on': new Date(),
-        'modified_by': user.user_id
+        'modified_by': user.facebook.user_id
     }, function (err, affected, resp) {
         if (err) {
             callback(err, null);
